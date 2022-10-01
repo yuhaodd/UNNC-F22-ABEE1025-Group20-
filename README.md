@@ -1,5 +1,8 @@
-# group 20 crousework
-# members: yuhao dai 20320171 fengrui liu 20418135
+# Group20 Crousework
 
-zhangzhiang is our tutor
-we will work hard at aed1
+# Group Members: 
+Yuhao Dai 20320171 
+Fengrui Liu 20418135
+
+# Message:
+Zhiang Zhang is our mudule convener and we will work hard at AED1.
