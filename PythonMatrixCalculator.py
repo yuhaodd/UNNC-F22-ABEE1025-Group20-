@@ -19,16 +19,16 @@ class MatrixCalculator:
         self.init_window_name.title("Python Matrix Calculator")
         
         #The size of the window
-        self.init_window_name.geometry('1300x600')
+        self.init_window_name.geometry('1200x600')
         
         #The blur degree of the window
         self.init_window_name.attributes("-alpha",0.9)
         
         # The minimum size of GUI window
-        self.init_window_name.minsize(1300,600)
+        self.init_window_name.minsize(1200,600)
         
         # The maximum size of GUI window
-        self.init_window_name.maxsize(1700,800) 
+        self.init_window_name.maxsize(1500,800) 
         
         #Label:
         #Label of "Matrix A Input"
@@ -196,7 +196,7 @@ class MatrixCalculator:
     #Set a inside window
     def show_userguide(self):
         Userguide=Tk()
-        Userguide.geometry("1000x500")
+        Userguide.geometry("950x550")
         Userguide.title("User Guide")
 
         #Text for Instruction content
@@ -238,19 +238,25 @@ from matrix top left to right bottom.\n')
         self.content.insert(14.0,
             '                "Elements":1 2 3 1 2 3\n')
         self.content.insert(15.0,
-            'NOTICE 2\n')
+            '    4) The inputs of Matrix A and Matrxi B \
+should be the same dimension for addition and subtraction.\n')
         self.content.insert(16.0,
-            '    For Matrix Operation:\n')
+            '    5) The column number of Matrix A \
+should be the same as the row number of Matrix B for multiplication.\n')
         self.content.insert(17.0,
+            'NOTICE 2\n')
+        self.content.insert(18.0,
+            '    For Matrix Operation:\n')
+        self.content.insert(19.0,
             '    1) The inputs of matrix must be confirmed \
 by Button "Confirm" before any operation.\n')
-        self.content.insert(18.0,
+        self.content.insert(20.0,
             '    2) For "Transpose", \
 input one matrix (A or B) is enough.\n')
-        self.content.insert(19.0,
+        self.content.insert(21.0,
             '        For "Add", "Subtract" and "Multiply", \
 input both matrix A and martrix B.\n')
-        self.content.insert(20.0,
+        self.content.insert(22.0,
             '    3) The three different clear buttons are responsible for \
 deleting the corresponding parts.\n')
         
@@ -352,42 +358,41 @@ deleting the corresponding parts.\n')
         
         """
         global r1,c1,r2,c2
-        if r2!=r1:
-            self.text1.insert(END,'unable to calculate')
+        
+        if r1!=r2 or c1!=c2:
+            self.text1.insert(END,'Input Error - Unable to Calculate')
             self.text1.insert(END,'\n')
-        elif c2!=c1:
-            self.text1.insert(END,'unable to calculate')
-            self.text1.insert(END,'\n')
-        #Get the elments of Matrix A in Entry2
+            
         else:
+            #Get the elments of Matrix A in Entry2
             excel=self.E_var2.get()
             self.text1.insert(END,'Input Matrix A:\n')
             excel=excel.split()
             excel=[excel[i:i+c1] for i in range(0,len(excel),c1)]
-        for i in range(r1):
-            for j in range(c1):
-                self.text1.insert(END,excel[i][j]+' ')
-            self.text1.insert(END,'\n')
+            for i in range(r1):
+                for j in range(c1):
+                    self.text1.insert(END,excel[i][j]+' ')
+                self.text1.insert(END,'\n')
         
-        #Get the elments of Matrix B in Entry4
-        excel1=self.E_var4.get()
-        self.text1.insert(END,'Input Matrix B:\n')
-        excel1=excel1.split()
-        excel1=[excel1[i:i+c1] for i in range(0,len(excel1),c1)]
-        for i in range(r2):
-            for j in range(c2):
-                self.text1.insert(END,excel1[i][j]+' ')
-            self.text1.insert(END,'\n')
+            #Get the elments of Matrix B in Entry4
+            excel1=self.E_var4.get()
+            self.text1.insert(END,'Input Matrix B:\n')
+            excel1=excel1.split()
+            excel1=[excel1[i:i+c1] for i in range(0,len(excel1),c1)]
+            for i in range(r2):
+                for j in range(c2):
+                    self.text1.insert(END,excel1[i][j]+' ')
+                self.text1.insert(END,'\n')
         
-        #Perform add operation
-        add_excel=[[str((int(excel[i][j])+int(excel1[i][j]))) 
-                    for j in range(c1)] for i in range(r1)]
-        self.text1.insert(END,'Matrix addition result：:\n')
-        for i in range(r1):
-            for j in range(c1):
-                self.text1.insert(END,add_excel[i][j]+' ')
-            self.text1.insert(END,'\n')
-    
+            #Perform add operation
+            add_excel=[[str((int(excel[i][j])+int(excel1[i][j]))) 
+                        for j in range(c1)] for i in range(r1)]
+            self.text1.insert(END,'Matrix addition result：:\n')
+            for i in range(r1):
+                for j in range(c1):
+                    self.text1.insert(END,add_excel[i][j]+' ')
+                self.text1.insert(END,'\n')
+            
     #Subtract Matrix A and Matrix B
     def subtract(self):
         """
@@ -395,41 +400,40 @@ deleting the corresponding parts.\n')
         
         """
         global r1,c1,r2,c2
-        if r2!=r1:
-            self.text1.insert(END,'unable to calculate')
+        
+        if r1!=r2 or c1!=c2:
+            self.text1.insert(END,'Input Error - Unable to Calculate')
             self.text1.insert(END,'\n')
-        elif c2!=c1:
-            self.text1.insert(END,'unable to calculate')
-            self.text1.insert(END,'\n')
-        #Get the elments of Matrix A in Entry2
+            
         else:
+            #Get the elments of Matrix A in Entry2
             excel=self.E_var2.get()
             self.text1.insert(END,'Input Matrix A:\n')
             excel=excel.split()
             excel=[excel[i:i+c1] for i in range(0,len(excel),c1)]
-        for i in range(r1):
-            for j in range(c1):
-                self.text1.insert(END,excel[i][j]+' ')
-            self.text1.insert(END,'\n')
+            for i in range(r1):
+                for j in range(c1):
+                    self.text1.insert(END,excel[i][j]+' ')
+                self.text1.insert(END,'\n')
             
-        #Get the elments of Matrix B in Entry4
-        excel1=self.E_var4.get()
-        self.text1.insert(END,'Input Matrix B:\n')
-        excel1=excel1.split()
-        excel1=[excel1[i:i+c1] for i in range(0,len(excel1),c1)]
-        for i in range(r2):
-            for j in range(c2):
-                self.text1.insert(END,excel1[i][j]+' ')
-            self.text1.insert(END,'\n')
+            #Get the elments of Matrix B in Entry4
+            excel1=self.E_var4.get()
+            self.text1.insert(END,'Input Matrix B:\n')
+            excel1=excel1.split()
+            excel1=[excel1[i:i+c1] for i in range(0,len(excel1),c1)]
+            for i in range(r2):
+                for j in range(c2):
+                    self.text1.insert(END,excel1[i][j]+' ')
+                self.text1.insert(END,'\n')
         
-        #Perform subtract operation
-        subtract_excel=[[str((int(excel[i][j])-int(excel1[i][j]))) 
-                         for j in range(c1)] for i in range(r1)]
-        self.text1.insert(END,'Matrix subtraction result：:\n')
-        for i in range(r1):
-            for j in range(c1):
-                self.text1.insert(END,subtract_excel[i][j]+' ')
-            self.text1.insert(END,'\n')
+            #Perform subtract operation
+            subtract_excel=[[str((int(excel[i][j])-int(excel1[i][j]))) 
+                             for j in range(c1)] for i in range(r1)]
+            self.text1.insert(END,'Matrix subtraction result：:\n')
+            for i in range(r1):
+                for j in range(c1):
+                    self.text1.insert(END,subtract_excel[i][j]+' ')
+                self.text1.insert(END,'\n')
 
     #Multiply Matrix A and Matrix B
     def multiply(self):
@@ -439,41 +443,43 @@ deleting the corresponding parts.\n')
         
         """
         global r1,c1,r2,c2
-        if r2!=c1:
-            self.text1.insert(END,'unable to calculate')
+        
+        if c1!=r2:
+            self.text1.insert(END,'Input Error - Unable to Calculate')
             self.text1.insert(END,'\n')
-        #Get the elments of Matrix A in Entry2
+            
         else:
+            #Get the elments of Matrix A in Entry2
             excel=self.E_var2.get()
             self.text1.insert(END,'Input Matrix A:\n')
             excel=excel.split()
             excel=[excel[i:i+c1] for i in range(0,len(excel),c1)]
-        for i in range(r1):
-            for j in range(c1):
-                self.text1.insert(END,excel[i][j]+' ')
-            self.text1.insert(END,'\n')
+            for i in range(r1):
+                for j in range(c1):
+                    self.text1.insert(END,excel[i][j]+' ')
+                self.text1.insert(END,'\n')
         
-        #Get the elments of Matrix B in Entry4
-        excel1=self.E_var4.get()
-        self.text1.insert(END,'Input Matrix B:\n')
-        excel1=excel1.split()
-        excel1=[excel1[i:i+c2] for i in range(0,len(excel1),c2)]
-        for i in range(r2):
-            for j in range(c2):
-                self.text1.insert(END,excel1[i][j]+' ')
-            self.text1.insert(END,'\n')    
+            #Get the elments of Matrix B in Entry4
+            excel1=self.E_var4.get()
+            self.text1.insert(END,'Input Matrix B:\n')
+            excel1=excel1.split()
+            excel1=[excel1[i:i+c2] for i in range(0,len(excel1),c2)]
+            for i in range(r2):
+                for j in range(c2):
+                    self.text1.insert(END,excel1[i][j]+' ')
+                self.text1.insert(END,'\n')    
         
-        #Perform multiply operation
-        mul_excel=[[0 for j in range(c2)] for i in range(r1)]
-        for i in range(r1):
-            for j in range(c2):
-                for k in range(c1):
-                    mul_excel[i][j]+=int(excel[i][k])*int(excel1[k][j])
-        self.text1.insert(END,'Matrix multiplication result：:\n')
-        for i in range(r1):
-            for j in range(c2):
-                self.text1.insert(END,str(mul_excel[i][j])+' ')
-            self.text1.insert(END,'\n')  
+            #Perform multiply operation
+            mul_excel=[[0 for j in range(c2)] for i in range(r1)]
+            for i in range(r1):
+                for j in range(c2):
+                    for k in range(c1):
+                        mul_excel[i][j]+=int(excel[i][k])*int(excel1[k][j])
+            self.text1.insert(END,'Matrix multiplication result：:\n')
+            for i in range(r1):
+                for j in range(c2):
+                    self.text1.insert(END,str(mul_excel[i][j])+' ')
+                self.text1.insert(END,'\n')  
 
     #Clear the input of Matrix A
     def clear_A(self):
