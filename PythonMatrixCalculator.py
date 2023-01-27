@@ -355,6 +355,9 @@ deleting the corresponding parts.\n')
         if r2!=c1:
             self.text1.insert(END,'unable to calculate')
             self.text1.insert(END,'\n')
+        elif c2!=r1:
+            self.text1.insert(END,'unable to calculate')
+            self.text1.insert(END,'\n')
         #Get the elments of Matrix A in Entry2
         else:
             excel=self.E_var2.get()
@@ -393,6 +396,9 @@ deleting the corresponding parts.\n')
         """
         global r1,c1,r2,c2
         if r2!=c1:
+            self.text1.insert(END,'unable to calculate')
+            self.text1.insert(END,'\n')
+        elif c2!=r1:
             self.text1.insert(END,'unable to calculate')
             self.text1.insert(END,'\n')
         #Get the elments of Matrix A in Entry2
