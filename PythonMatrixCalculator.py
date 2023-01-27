@@ -226,7 +226,7 @@ multiplication, and transpozation.\n')
 must be separated by a space.\n')
         self.content.insert(9.0,
             '    3) The elements should be input \
-from matrix top left to right bottom.\n')
+from matrix top left to right bottom in row order.\n')
         self.content.insert(10.0,
             '    For Example: Matrix 2x3\n')
         self.content.insert(11.0,
