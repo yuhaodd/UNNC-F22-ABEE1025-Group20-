@@ -437,7 +437,7 @@ deleting the corresponding parts.\n')
             self.text1.insert(END,'unable to calculate')
             self.text1.insert(END,'\n')
         #Get the elments of Matrix A in Entry2
-        else：
+        else:
             excel=self.E_var2.get()
             self.text1.insert(END,'Input Matrix A:\n')
             excel=excel.split()
