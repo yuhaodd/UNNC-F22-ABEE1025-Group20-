@@ -1,10 +1,10 @@
-# Group20 Coursework Part1
+# Group20 Coursework
 
-Group Name: Group20
+- Group Name: Group20
 
-Group Members:
-- Fengrui LIU (20418135)
-- Yuhao DAI (20320171)
+- Group Members:
+  Fengrui LIU (20418135)
+  Yuhao DAI (20320171)
 
 # University Programme Information
 - Faculty: Faculty of Science and Engineering
