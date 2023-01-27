@@ -352,10 +352,10 @@ deleting the corresponding parts.\n')
         
         """
         global r1,c1,r2,c2
-        if r2!=c1:
+        if r2!=r1:
             self.text1.insert(END,'unable to calculate')
             self.text1.insert(END,'\n')
-        or c2!=r1:
+        elif c2!=c1:
             self.text1.insert(END,'unable to calculate')
             self.text1.insert(END,'\n')
         #Get the elments of Matrix A in Entry2
@@ -395,10 +395,10 @@ deleting the corresponding parts.\n')
         
         """
         global r1,c1,r2,c2
-        if r2!=c1:
+        if r2!=r1:
             self.text1.insert(END,'unable to calculate')
             self.text1.insert(END,'\n')
-        or c2!=r1:
+        elif c2!=c1:
             self.text1.insert(END,'unable to calculate')
             self.text1.insert(END,'\n')
         #Get the elments of Matrix A in Entry2
